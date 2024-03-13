@@ -1,4 +1,4 @@
-# \[Sara-Sara-Huda1\]
+# \[Sara-Sara-Huda\]
 
 **Group members:**
 - A
