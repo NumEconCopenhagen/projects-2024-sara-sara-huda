@@ -1,5 +1,4 @@
 from scipy import optimize
-
 class ExchangeEconomyClass:
     def __init__(self, alpha, beta, endowment_A):
         self.alpha = alpha
