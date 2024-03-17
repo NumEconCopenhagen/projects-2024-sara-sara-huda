@@ -51,7 +51,7 @@ class ExchangeEconomyClass:
         x2_B = self.demand_B_x2(p1_optimal, 1)
         return p1_optimal, (x1_A, x2_A), (x1_B, x2_B)
 
-    # Allocation if any positive price can be chosen
+    # Allocation if any positive price can be chosen 
     def allocation_any_positive_price(self):
         def objective(p1):
             x1 = self.demand_A_x1(p1, 1)
