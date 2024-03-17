@@ -1,4 +1,3 @@
-# Organize
 from scipy import optimize
 
 class ExchangeEconomyClass:
