@@ -35,7 +35,7 @@ class ExchangeEconomyClass:
         p1_clearing = optimize.brentq(excess_demand_x1, 0.01, 10)
         return p1_clearing
 
-    # Allocation if only prices in P1 can be chosen
+    # Defining allocation prices and demand
     def allocation_prices_in_P1(self, P1):
         def objective(p1):
             x1 = self.demand_A_x1(p1, 1)
