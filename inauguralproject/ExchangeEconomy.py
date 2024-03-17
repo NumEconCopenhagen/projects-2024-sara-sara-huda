@@ -26,7 +26,7 @@ class ExchangeEconomyClass:
     def demand_B_x2(self, p1, p2):
         return (1 - self.beta) * (p1*self.endowment_B[0] + p2*self.endowment_B[1]) / p2
 
-    # Question 3: Method to find market clearing price
+    # Market clearing price
     def market_clearing_price(self):
         def excess_demand_x1(p1):
             total_demand_x1 = self.demand_A_x1(p1, 1) + self.demand_B_x1(p1, 1)
@@ -36,7 +36,7 @@ class ExchangeEconomyClass:
         p1_clearing = optimize.brentq(excess_demand_x1, 0.01, 10)
         return p1_clearing
 
-    # Question 4a: Method to find allocation if only prices in P1 can be chosen
+    # Allocation if only prices in P1 can be chosen
     def allocation_prices_in_P1(self, P1):
         def objective(p1):
             x1 = self.demand_A_x1(p1, 1)
@@ -51,7 +51,7 @@ class ExchangeEconomyClass:
         x2_B = self.demand_B_x2(p1_optimal, 1)
         return p1_optimal, (x1_A, x2_A), (x1_B, x2_B)
 
-    # Question 4b: Method to find allocation if any positive price can be chosen
+    # Allocation if any positive price can be chosen
     def allocation_any_positive_price(self):
         def objective(p1):
             x1 = self.demand_A_x1(p1, 1)
@@ -67,7 +67,7 @@ class ExchangeEconomyClass:
         return p1_optimal, (x1_A, x2_A), (x1_B, x2_B)
 
 if __name__ == '__main__':
-    # Constants
+    # Parameters and preferences
     alpha = 1/3
     beta = 2/3
     endowment_A = [0.8, 0.3]
@@ -75,15 +75,15 @@ if __name__ == '__main__':
     # Initialize the economy
     economy = ExchangeEconomyClass(alpha, beta, endowment_A)
 
-    # Question 3: Find the market clearing price
+    # Market clearing price
     p1_clearing = economy.market_clearing_price()
     print(f'Market clearing price (p1): {p1_clearing}')
 
-    # Question 4a: Assume a set of prices P1 for question 4a
+    # Assume a set of prices P1 for question 4a
     P1 = [0.5, 1.5]
     p1_optimal_4a, allocation_A_4a, allocation_B_4a = economy.allocation_prices_in_P1(P1)
     print(f'Optimal price and allocation in P1: {p1_optimal_4a}, {allocation_A_4a}, {allocation_B_4a}')
 
-    # Question 4b: Find the allocation for question 4b
+    # Allocation for question 4b
     p1_optimal_4b, allocation_A_4b, allocation_B_4b = economy.allocation_any_positive_price()
     print(f'Optimal price and allocation for any positive price: {p1_optimal_4b}, {allocation_A_4b}, {allocation_B_4b}')
