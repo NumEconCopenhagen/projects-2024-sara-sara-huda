@@ -72,10 +72,10 @@ if __name__ == '__main__':
     beta = 2/3
     endowment_A = [0.8, 0.3]
 
-    # Initialize the economy
+    # Initialize the economy 
     economy = ExchangeEconomyClass(alpha, beta, endowment_A)
 
-    # Market clearing price
+    # Market clearing price 
     p1_clearing = economy.market_clearing_price()
     print(f'Market clearing price (p1): {p1_clearing}')
 
