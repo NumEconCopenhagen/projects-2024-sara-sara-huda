@@ -1,9 +1,9 @@
 # \[Sara-Sara-Huda\]
 
 **Group members:**
-- A
-- B
-- C
+- Sara Abdalla
+- Sara Selmani
+- Huda Sharfo
 
 This repository contains  
 1. Inaugural project. 
