@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 
@@ -57,7 +56,6 @@ class RBCModel:
         a_matrix = np.zeros((2, 2))
         b_matrix = np.zeros((2, 1))
 
-        # Dummy matrices representing the linear approximation
         a_matrix[0, 0] = p['beta'] * p['alpha']
         b_matrix[0, 0] = 0.5
 
@@ -69,13 +67,22 @@ class RBCModel:
         self.f = np.array([[0.5, 0.5], [0.1, 0.9]])
         self.p = np.array([[0.8, 0.2], [0.3, 0.7]])
 
-    def simulate_model(self, T=100, seed=None):
-        """Simulate the RBC model for T periods with an optional random seed."""
+    def simulate_model(self, T=100, alpha=None, beta=None, sigma=None, seed=None):
+        """Simulate the RBC model for T periods, optionally with different parameters and random seed."""
+        if alpha is not None:
+            self.parameters['alpha'] = alpha
+        if beta is not None:
+            self.parameters['beta'] = beta
+        if sigma is not None:
+            self.parameters['sigma'] = sigma
+
+        self.compute_ss([1, 10, 2, 5, 1])  # Adjust initial guess as needed
+
         if seed is not None:
             np.random.seed(seed)
 
         sim_data = np.zeros((T, 2))
-        state = np.array([0.5, 0.5])
+        state = np.array([self.ss['k'], self.ss['y']])
 
         for t in range(T):
             state = self.f @ state + self.p @ np.random.randn(2)
