@@ -3,7 +3,6 @@
 Our project, titled ''Solow Model Analysis'' explores the Solow growth model, focusing on how changes in key economic parameters affect long-term growth. We analyze the impact of savings rate and depreciation rate on the economy's steady state and dynamic transition.
 
 Methods
-
 We define the SolowModel class, which involves the model's logic, including methods for steady-state computation using scipy.optimize.fsolve, dynamic simulation, and shock application. We use numpy, scipy, matplotlib, and pandas for numerical analysis and visualization.
 
 Results
