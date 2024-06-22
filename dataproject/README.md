@@ -5,6 +5,7 @@ Our project, titled *Data Project: MONA and VAR-Models*, explores the impact of 
 We apply the *following datasets*:
 
 1. monadata2023.xlsx (handed to us by bachelor supervisor)
+2. cleaned_and_transposed_monadata2023.xlsx
 
 *Methods*
 We use data from MONA, focusing on the monetary policy interest rate, output, inflation, and the effective krone exchange rate. We prepare the data, perform stationarity tests, fit a VAR model, and analyze impulse response functions.
