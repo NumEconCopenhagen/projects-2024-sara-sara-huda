@@ -56,6 +56,7 @@ def barycentric_coordinates(y, A, B, C):
     return r1, r2, r3
 
 # Approximate f(y)
+# We used ChatGPT to help us construct this function, which was important for accurately approximating f(y)
 def approximate_f_y(y, X, F):
     A, B, C, D = find_points(X, y)
     
@@ -149,7 +150,7 @@ def example_for_all_points_in_Y(Y, X, F):
         approximation, triangle = approximate_f_y(y, X, F)
         results.append((y, true_value, approximation, triangle))
 
-    # Print results for Y with values formatted to three decimal places
+    # Print results for Y
     for result in results:
         y, true_value, approximation, triangle = result
         print(f"Point y: {y}")
