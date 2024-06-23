@@ -6,13 +6,13 @@
 - Sara Selmani
 - Huda Sharfo
 
-This repository contains  
+**This repository contains**  
 
 1. Inaugural project. 
 
 2. Data project 
 
-- We fetch data from The Danish Central Bank's MONA dataset and show that that higher interest rates suppress economic activity and inflation, with little effect on exchange rates in the Danish economy.
+- We fetch data from Tthe MONA dataset which is maintained by the Danish Central Bank and show that that higher interest rates suppress economic activity and inflation, with little effect on exchange rates in the Danish economy.
 
 
 3. Model project.
