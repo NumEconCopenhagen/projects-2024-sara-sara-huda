@@ -2,25 +2,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import RegularGridInterpolator
 
-# Given function
 f = lambda x: x[0] * x[1]
 
-# Generate points in the unit square
 rng = np.random.default_rng(2024)
 X = rng.uniform(size=(50, 2))
 F = np.array([f(x) for x in X])
 
-# Generate grid for interpolation
 grid_x = np.linspace(0, 1, 10)
 grid_y = np.linspace(0, 1, 10)
 grid_xx, grid_yy = np.meshgrid(grid_x, grid_y)
 grid = np.array([grid_xx.flatten(), grid_yy.flatten()]).T
 values = np.array([f(point) for point in grid])
 
-# Construct interpolator
 interpolator = RegularGridInterpolator((grid_x, grid_y), values.reshape((10, 10)))
 
-# Find points A, B, C, D
 def find_points(X, y):
     A, B, C, D = None, None, None, None
     min_dist_A, min_dist_B, min_dist_C, min_dist_D = float('inf'), float('inf'), float('inf'), float('inf')
@@ -41,7 +36,6 @@ def find_points(X, y):
     
     return A, B, C, D
 
-# Barycentric coordinates calculation
 def barycentric_coordinates(y, A, B, C):
     y1, y2 = y
     A1, A2 = A
@@ -83,7 +77,6 @@ def approximate_f_y(y, X, F):
 
     return approximation, triangle
 
-# Illustration of points and triangles
 def plot_points_and_triangles(X, y, A, B, C, D):
     plt.figure(figsize=(8, 8))
     plt.scatter(X[:, 0], X[:, 1], label='Points in X', color='blue')
@@ -106,12 +99,10 @@ def plot_points_and_triangles(X, y, A, B, C, D):
     plt.grid(True)
     plt.show()
 
-# Example usage for a single point y
 y = rng.uniform(size=(2,))
 A, B, C, D = find_points(X, y)
 plot_points_and_triangles(X, y, A, B, C, D)
 
-# Example for computing barycentric coordinates and determining triangle containment
 def example_barycentric_and_containment(y, A, B, C, D):
     r_ABC = barycentric_coordinates(y, A, B, C)
     r_CDA = barycentric_coordinates(y, C, D, A)
@@ -132,7 +123,6 @@ def example_barycentric_and_containment(y, A, B, C, D):
 
 example_barycentric_and_containment(y, A, B, C, D)
 
-# Compute and compare approximation
 def example_compute_approximation(y, X, F):
     true_value = f(y)
     approximation, triangle = approximate_f_y(y, X, F)
@@ -142,7 +132,6 @@ def example_compute_approximation(y, X, F):
 
 example_compute_approximation(y, X, F)
 
-# Repeat for all points in Y
 def example_for_all_points_in_Y(Y, X, F):
     results = []
     for y in Y:
@@ -150,7 +139,7 @@ def example_for_all_points_in_Y(Y, X, F):
         approximation, triangle = approximate_f_y(y, X, F)
         results.append((y, true_value, approximation, triangle))
 
-    # Print results for Y
+    
     for result in results:
         y, true_value, approximation, triangle = result
         print(f"Point y: {y}")

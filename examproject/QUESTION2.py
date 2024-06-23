@@ -172,6 +172,3 @@ def main():
     new_average_subjective_utility, new_average_realised_utility, switch_share = calculate_new_results(par, chosen_careers, decisions_to_switch, new_expectations_before, new_realised_utilities)
     
     plot_new_results(par, switch_share, new_average_subjective_utility, new_average_realised_utility)
-
-if __name__ == "__main__":
-    main()
