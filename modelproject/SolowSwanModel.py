@@ -43,7 +43,7 @@ class SolowSwanModel:
         Y_path = np.zeros(self.Tpath)
         C_path = np.zeros(self.Tpath)
          # This part of the code involved some difficulties for us due to the iterative computation required for the transition path.
-         # After facing difficulties in implementing this on our own, we used ChatGPT for assistance and help structure this method correctly.
+         # After facing difficulties in implementing this on our own, we used ChatGPT to help structure this method correctly.
         
         K_path[0] = self.K_initial
         for t in range(1, self.Tpath):
